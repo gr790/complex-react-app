@@ -6,8 +6,8 @@ before_install:
   # dockerid/name_of_your_image
   - docker build -t rahulroot/react-test -f ./client/Dockerfile.dev ./client
 
-script:
-  - docker run rahulroot/react-test npm test -- --coverage
+#script:
+  #- docker run rahulroot/react-test npm test -- --coverage
 
 after_success:
   - docker build -t rahulroot/multi-images-client ./client
