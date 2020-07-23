@@ -10,17 +10,17 @@ script:
   - docker run rahulroot/react-test npm test
 
 after_success:
-  - docker build -t rahulroot/multi-images-client ./client
-  - docker build -t rahulroot/multi-images-nginx ./nginx
-  - docker build -t rahulroot/multi-images-server ./server
-  - docker build -t rahulroot/multi-images-worker ./worker
+  - docker build -t rahulroot/multi-client ./client
+  - docker build -t rahulroot/multi-nginx ./nginx
+  - docker build -t rahulroot/multi-server ./server
+  - docker build -t rahulroot/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push rahulroot/multi-images-client
-  - docker push rahulroot/multi-images-nginx
-  - docker push rahulroot/multi-images-server
-  - docker push rahulroot/multi-images-worker
+  - docker push rahulroot/multi-client
+  - docker push rahulroot/multi-nginx
+  - docker push rahulroot/multi-server
+  - docker push rahulroot/multi-worker
 
 #deploy:
 #  provider: elasticbeanstalk
